@@ -21,8 +21,7 @@
                 //logically looking at racecar it can be broken down into rac e car, just reverse rac or car and then rac == rac or car == car
                 let loopLength = textBoxValue.length/2;
                 let check = true;
-                if(textBoxValue.length%2==1){loopLength=(textBoxValue.length/2)-1;}
-                for(var i = 0; i<loopLength; i++){
+                for(var i = 0; i<textBoxValue.length/2; i++){
                     //console.log("this is the -i: "+ textBoxValue.charAt(textBoxValue.length-i-1));
                     //console.log("this is at i: "+textBoxValue.charAt(i));
                     //console.log("this is check: "+check);
