@@ -2,16 +2,16 @@
 
     <head>
         <script>
-            function reverseString(){
-                let textBoxValue = document.getElementById("myBox").value;
+            function reverseString(xd){ 
                 let out = "";
-                for(var i = textBoxValue.length; i>-1; i--){
-                    out += textBoxValue.charAt(i);
+                for(var i = xd.length; i>-1; i--){
+                    out += xd.charAt(i);
                 }
                 return out;
             }
             function myfunction1(){
-                alert(reverseString())
+                let textBoxValue = document.getElementById("myBox").value;
+                alert(reverseString(textBoxValue))
             }
 
         </script>
