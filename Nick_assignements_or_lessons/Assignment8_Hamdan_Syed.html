@@ -2,14 +2,20 @@
 
     <head>
         <script>
+            function reverseString(xd){ 
+                let out = "";
+                for(var i = xd.length; i>-1; i--){
+                    out += xd.charAt(i);
+                }
+                return out;
+            }
+            function isPalindrome(passedString){
+                if (reverseString(passedString)==passedString){return "It's a Palindrome!";}
+                else {return "It's not a Palindrome!";}
+            }
             function myfunction1(){
                 let textBoxValue = document.getElementById("myBox").value;
-                let out = "";
-                for(var i = textBoxValue.length; i>-1; i--){
-                    out += textBoxValue.charAt(i);
-                }
-                if(out.toLowerCase()==textBoxValue.toLowerCase()){alert("it's a palindrome!");}
-                else{alert("it's not a palindrome");}
+                alert(isPalindrome(textBoxValue))
             }
 
         </script>
