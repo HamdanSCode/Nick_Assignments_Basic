@@ -10,24 +10,16 @@
                 return out;
             }
             function isPalindrome(passedString){
-                if ((passedString).substr((passedString.length/2))==passedString.substr(0,passedString.length/2)){return "It's a Palindrome!";}
-                else {return (passedString).substr((passedString.length/2))}
+                let check = true;
+                for(var i = 0; i<passedString.length/2; i++){
+                    if(passedString.charAt(passedString.length-i-1) != passedString.charAt(i)){check=false;}
+                }
+                if (check==true){return("this is a palindrome");}
+                else{return("this is not a palindrome");}
             }
             function myfunction1(){
                 let textBoxValue = document.getElementById("myBox").value;
-            /*
-            compare first half to the reversing half at the end
-            */
-                //logically looking at racecar it can be broken down into rac e car, just reverse rac or car and then rac == rac or car == car
-                let check = true;
-                for(var i = 0; i<textBoxValue.length/2; i++){
-                    //console.log("this is the -i: "+ textBoxValue.charAt(textBoxValue.length-i-1));
-                    //console.log("this is at i: "+textBoxValue.charAt(i));
-                    //console.log("this is check: "+check);
-                    if(textBoxValue.charAt(textBoxValue.length-i-1) != textBoxValue.charAt(i)){check=false;}
-                }
-                if (check==true){alert("this is a palindrome");}
-                else{alert("this is not a palindrome");}
+                alert(isPalindrome(textBoxValue));
             }
 
         </script>
