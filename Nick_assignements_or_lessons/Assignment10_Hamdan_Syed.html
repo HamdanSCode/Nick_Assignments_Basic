@@ -1,0 +1,58 @@
+<html>
+
+    <head>
+        <script>
+            function reverseString(xd){ 
+                let out = "";
+                for(var i = xd.length; i>-1; i--){
+                    out += xd.charAt(i);
+                }
+                return out;
+            }
+            function isPalindrome(passedString){
+                var timeStart = Date.now();
+                console.log("my version start: "+ Date.now());
+                for(var i = 0; i<1000000; i++){
+                    if ((passedString).substr((passedString.length/2))==passedString.substr(0,passedString.length/2)){}
+                    else {}
+                }
+                console.log("my version end: "+ Date.now());
+                var timeEnd = Date.now() - timeStart;
+                console.log("difference from start to end: " + timeEnd)
+            }
+            function isPalindrome2(passedString){
+                let check = true;
+                var timeStart = Date.now();
+                console.log("Efficient version start: "+ Date.now());
+                for(var k = 0; k<1000000; k++){
+                for(var i = 0; i<passedString.length/2; i++){
+                    if(passedString.charAt(passedString.length-i-1) != passedString.charAt(i)){check=false;}
+                }
+            }
+                console.log("Efficient version end: "+ Date.now());
+                var timeEnd = Date.now()- timeStart;
+                console.log("difference from start to end: " + timeEnd)
+                if (check==true){return"this is a palindrome";}
+                else{return"this is not a palindrome";}
+            }
+            function myfunction1(){
+                let textBoxValue = document.getElementById("myBox").value;
+            /*
+            compare first half to the reversing half at the end
+            */
+                isPalindrome(textBoxValue);
+                isPalindrome2(textBoxValue);
+                //logically looking at racecar it can be broken down into rac e car, just reverse rac or car and then rac == rac or car == car
+                //get the timestamp from start to end and compare both
+            }
+
+        </script>
+    </head>
+
+
+    <body>
+        <input id="myBox" type="text"></input>
+        <div id="box" onclick="myfunction1()">QUESTION 1</div>
+    </body>
+
+</html>
