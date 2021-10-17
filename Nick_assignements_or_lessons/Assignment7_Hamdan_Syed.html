@@ -5,7 +5,7 @@
             function myfunction1(){
                 let textBoxValue = document.getElementById("myBox").value;
                 let out = "";
-                for(i = textBoxValue.length; i>-1; i--){
+                for(var i = textBoxValue.length; i>-1; i--){
                     out += textBoxValue.charAt(i);
                 }
                 alert(out);

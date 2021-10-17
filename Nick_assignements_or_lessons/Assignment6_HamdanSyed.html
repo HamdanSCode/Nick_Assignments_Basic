@@ -6,10 +6,20 @@
                 var currentTime = new Date()
                 var year = currentTime.getFullYear();
                 let i = 0;
-                var output = "The next 20 leapyears are: ";
+                var output = "The next 20 leapyears are: "; //These extra days occur in each year which is an integer multiple of 4 (except for years evenly divisible by 100, but not by 400)
                 while (i<21){
                     year++;
-                    if(year%4 == 0){i++; output += year+" ";}
+                    var addyear=false;
+                    if(year%4 == 0){
+                        addyear = true;
+                    }
+                    if(year%100==0){
+                        addyear=false;
+                            if(year%400==0){
+                                addyear = true;
+                            }
+                        }
+                    if(addyear==true){i++;output += year+" ";}
                 }
                 alert(output);
             }
