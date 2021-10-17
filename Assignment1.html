@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+    function userDog(){
+        var userInput = prompt("Please enter your Input", "<Input goes here>");
+        if(userInput.length<3){
+            window.alert("NO");
+        }
+        else if(userInput.slice(0,3)=="dog"){window.alert("YES")}
+        else {window.alert("NO")}
+    }
+    function userCat(){
+        var userInput = prompt("Please enter your Input", "<Input goes here>");
+        if(userInput.length<3){
+            window.alert("NO");
+        }
+        else if (userInput.substr(0,3).toLowerCase()=="cat"){
+            window.alert("YES");
+        }
+        else{window.alert("NO");}
+    }
+    function userVowelStart(){
+        var userInput = prompt("Please enter your Input", "<Input goes here>");
+        var x = userInput.substr(0,1).toLowerCase()
+        if(x == "a" || x== "e" || x == "o" || x == "i" || x == "u"){
+            window.alert("YES");
+        }
+        else {window.alert("NO");}
+    }
+    function userNumber(){
+        var userInput = prompt("Please enter your Input", "<Input goes here>");
+        if(Object.is(NaN,parseInt(userInput))){
+            window.alert("NO");
+        }
+        else {
+            window.alert("YES");
+        }
+    }
+    function userLength5(){
+        var userInput = prompt("Please enter your Input", "<Input goes here>");
+            if(userInput.length == 5){window.alert("YES");}
+            else {window.alert("NO");}
+    }
+    function userLength4(){
+        var userInput = prompt("Please enter your Input", "<Input goes here>");
+            if(userInput.length < 5){window.alert("YES");}
+            else {window.alert("NO");}
+    }
+    function userLength3(){
+        var userInput = prompt("Please enter your Input", "<Input goes here>");
+            if(userInput.length >= 3){window.alert("YES");}
+            else {window.alert("NO");}
+    }
+    function userCapital(){
+        var userInput = prompt("Please enter your Input", "<Input goes here>");
+        var check = "YES";
+            for(let i = 0; i < userInput.length; i++ ){
+                if(userInput.charAt(i) != userInput.toUpperCase()){check="NO";}
+            }
+            window.alert(check);
+    }
+    function userLower(){
+        var userInput = prompt("Please enter your Input", "<Input goes here>");
+        var check = "YES";
+            for(let i = 0; i < userInput.length; i++ ){
+                if(userInput.charAt(i) != userInput.toLowerCase()){check="NO";}
+            }
+            window.alert(check);
+    }
+    function userPotato(){
+        var userInput = prompt("Please enter your Input", "<Input goes here>");
+        var check = "NO";
+        if(userInput.length >= 6 && userInput.substr(userInput.length-6,userInput.length)=="potato"){check="YES"}
+        window.alert(check);
+    } 
+    function userYordle(){
+        var userInput = prompt("Please enter your Input", "<Input goes here>");
+        var check = "NO";
+        if(userInput.includes("yordle")){check = "YES"}
+        //for(let i = 0; i<=userInput.Length; i++)
+        //{
+        //    if(userInput.substr(i,6) == "yordle"){check = "YES"}   //doesnt seem to work
+        //}
+        window.alert(check);
+    }
+    function userHasVowel(){
+        var userInput = prompt("Please enter your Input", "<Input goes here>");
+        var check = "NO";
+        var x ="xd";
+        for(let i = 0; i<userInput.length; i++){
+            x=userInput.charAt(i);
+            if(x == "a" || x == "e" || x == "o" || x == "i" || x == "u"){
+            check ="YES";
+            }
+        window.alert(check);
+        }
+    }
+</script>
+</head> 
+<body>
+<input id="output" type="text"></input>
+<div id="box" onclick="userDog()">QUESTION 1</div>
+<div id="box" onclick="userCat()">QUESTION 2</div>
+<div id="box" onclick="userVowelStart()">QUESTION 3</div>
+<div id="box" onclick="userNumber()">QUESTION 4</div>
+<div id="box" onclick="userLength5()">QUESTION 5</div>
+<div id="box" onclick="userLength4()">QUESTION 6</div>
+<div id="box" onclick="userLength3()">QUESTION 7</div>
+<div id="box" onclick="userCapital()">QUESTION 8</div>
+<div id="box" onclick="userLower()">QUESTION 9</div>
+<div id="box" onclick="userPotato()">QUESTION 10</div>
+<div id="box" onclick="userYordle()">QUESTION 11</div>
+<div id="box" onclick="userHasVowel()">QUESTION 12</div>
+</body>
+</html>
+
+
+<!--Write a program that writes the text that the user inputs (from an input textbox) back out at them in a div (innerHTML) 
+
+
+The href attribute of <a> specifies the URL of the page the link goes to
+The src attribute of <img> specifies the path to the image to be displayed
+The width and height attributes of <img> provide size information for images
+The alt attribute of <img> provides an alternate text for an image
+The style attribute is used to add styles to an element, such as color, font, size, and more
+The lang attribute of the <html> tag declares the language of the Web page
+The title attribute defines some extra information about an element
+
+Headings are <h1> - <h6>
+    <p> is paragraph
+<hr> creates a horizontal line break        (no end tag so no </hr>)
+<br> is a line break, its like pressing enter in docs   <no end tag so no </br>
+<pre> will take pre formatted text and keep it in it's format, so if you put extra spaces or lines in the text it will keep them unlike <p> does require a </pre>
+
+
+can set styles by doing the following
+<tagname style="property-your-changing:value;">
+    the property is a css prop and the value is a css value
+
+can change
+    background color by using background-color in the property part
+    text color by just using color in the property slot
+    Fonts by using font-family in the poperty slot
+    text size by using font-size .... and the value is x% where x is the amount your changing it
+    text alignment by using text-align and using corresponding values like center
+
+<form> used to create an html form for user input
+    <input> can be displayed in many ways, depends on the type attribute
+        <input type="text">	Displays a single-line text input field
+        <input type="radio">	Displays a radio button (for selecting one of many choices)
+        <input type="checkbox">	Displays a checkbox (for selecting zero or more of many choices)
+        <input type="submit">	Displays a submit button (for submitting the form)
+        <input type="button">	Displays a clickable button
+
+    <label> defines a label for form elements
+            used for screen reader users, also helps users who have difficulty clicking on small regions 
+            for attribute of <label> should be equal to the id attribute of the <input> ex:
+                <input type="radio" id="html" name="fav_language" value="HTML">
+                <label for="html">HTML</label><br>
+
+accept-charset	Specifies the character encodings used for form submission
+action	Specifies where to send the form-data when a form is submitted
+autocomplete	Specifies whether a form should have autocomplete on or off
+enctype	Specifies how the form-data should be encoded when submitting it to the server (only for method="post")
+method	Specifies the HTTP method to use when sending form-data
+name	Specifies the name of the form
+novalidate	Specifies that the form should not be validated when submitted
+rel	Specifies the relationship between a linked resource and the current document
+target	Specifies where to display the response that is received after submitting the form
+
+The <select> element defines a drop-down list:
+    <select id="cars" name="cars">
+    <option value="volvo">Volvo</option>
+    size attribute specifies the number of visible values
+    multiple attribute allows the user to select more than one value when holding ctrl or command
+
+
+The <textarea> element defines a multi-line input field (a text area):
+    can adjust it, ex: <textarea name="message" style="width:200px; height:600px;">
+
+-->
