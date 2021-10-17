@@ -1,0 +1,37 @@
+<html>
+
+    <head>
+        <script>
+            function reverseString(xd){ 
+                let out = "";
+                for(var i = xd.length; i>-1; i--){
+                    out += xd.charAt(i);
+                }
+                return out;
+            }
+            function isPalindrome(passedString){
+                if ((passedString).substr((passedString.length/2))==passedString.substr(0,passedString.length/2)){return "It's a Palindrome!";}
+                else {return (passedString).substr((passedString.length/2))}
+            }
+            function myfunction1(){
+                let textBoxValue = document.getElementById("myBox").value;
+            /*
+            compare first half to the reversing half at the end
+            */
+                //logically looking at racecar it can be broken down into rac e car, just reverse rac or car and then rac == rac or car == car
+                let loopLength = textBoxValue.length/2;
+                if(textBoxValue.length%2==1){loopLength=(textBoxValue.length/2)-1;}
+                if(textBoxValue.substr(0,loopLength) == reverseString(textBoxValue.substr(loopLength))){alert("this should be a palindrome")}
+                else{alert("this is not a palindrome")}
+            }
+
+        </script>
+    </head>
+
+
+    <body>
+        <input id="myBox" type="text"></input>
+        <div id="box" onclick="myfunction1()">QUESTION 1</div>
+    </body>
+
+</html>
