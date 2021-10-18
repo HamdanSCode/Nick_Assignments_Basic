@@ -10,28 +10,31 @@
                 return out;
             }
             function isOpen(passedString){
-                //Write a function that tells if a string of "(" and ")" is well-formed, as in each close only happens after an open, and it ends all perfectly closed.
-                //make a for loop iterate through string
+                        //Write a function that tells if a string of "(" and ")" is well-formed, as in each close only happens after an open, and it ends all perfectly closed.
+                        //make a for loop iterate through string
                 let paranCounter = 0;
                 for(var i = 0; i<passedString.length; i++){
-                //check for ( or )
-                if(passedString.charAt(i)==")" && paranCounter==0){return true;}
-                //if first encounter is ) return false if counter is 0
-                //if first encounter is ( increment counter by 1
-                if(passedString.charAt(i)=="(" ){
-                    paranCounter++;
-                }
-                else if(passedString.charAt(i) == ")"){
-                    paranCounter--;
-                }
-                    //if encounter ) decrement counter
-                    //else if encounter ( increment counter
+                        //check for ( or )
+                    if(passedString.charAt(i)==")" && paranCounter==0){return true;}
+                        //if first encounter is ) return false if counter is 0
+                        //if first encounter is ( increment counter by 1
+                    if(passedString.charAt(i)=="(" ){
+                        paranCounter++;
+                    }
+                    else if(passedString.charAt(i) == ")"){
+                        paranCounter--;
+                    }
+                        //if encounter ) decrement counter
+                        //else if encounter ( increment counter
                 }
                 if(paranCounter==0){return false}
-                else if(paranCounter <0){console.log("there might be an issue of off by one");}
+                else if(paranCounter <0){
+                    console.log("there might be an issue of off by one");
+                    return true;
+                }
                 else {return true;}
-                //if counter is > 0 return false
-                //else return true
+                        //if counter is > 0 return false
+                        //else return true
             }
             function myfunction1(){
                 let textBoxValue = document.getElementById("myBox").value;
