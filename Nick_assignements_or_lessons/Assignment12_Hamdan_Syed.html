@@ -1,0 +1,31 @@
+<html>
+
+    <head>
+        <script>
+            const input = [];           //creating input as a global array, accesible by any function in the scope of this script.
+            function fill(){
+                let textBoxValue = document.getElementById("myBox").value;
+                input.push(textBoxValue+" ");       //easy way to append information to the end of an array, in this case input is the array
+                let ele = document.getElementById('container');
+                ele.innerHTML = input.toString();   //when sending to innerHTML make sure to be sending it the expected type, or you may end up with just being told object.
+                
+
+            }
+            //Make an empty array, and each time the user clicks their button add the value into the array and put the array into the div
+        </script>
+   </head>
+   <body>
+       <p>
+            <input id="myBox" type="text"></input>
+            <input type='button' onclick='fill()' value='Fill me xd'>       
+           
+       </p>     
+       
+         <div id='container'>
+           <p>
+               the data should go here: 
+           </p>
+       </div>
+   </body>
+
+</html>
