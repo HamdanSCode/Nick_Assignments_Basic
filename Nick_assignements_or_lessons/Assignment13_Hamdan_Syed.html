@@ -1,0 +1,37 @@
+<html>
+
+    <head>
+        <script>
+            const input = [];           //creating input as a global array, accesible by any function in the scope of this script.
+            function fill(){
+                let random = 0;
+                for(let i = 0; i<100; i++){
+                    random = Math.floor(Math.random()*100);
+                    input.push(random);
+                }
+                let toContainer = document.getElementById('container');
+                //toContainer.innerHTML=input.toString();
+                for (let k = 0; k<100; k++){
+                    if(k%10==0){
+                        toContainer.innerHTML += "<br />"
+                    }
+                    toContainer.innerHTML += input[k].toString()+" ";
+                }
+            }
+            //Make an array with 100 random numbers in it (integer numbers)
+        </script>
+   </head>
+   <body>
+       <p>
+            <input type='button' onclick='fill()' value='Put those 100 numbers up'>       
+           
+       </p>     
+       
+         <div id='container'>
+           <p>
+               the 100 random numbers should go here: 
+           </p>
+       </div>
+   </body>
+
+</html>
