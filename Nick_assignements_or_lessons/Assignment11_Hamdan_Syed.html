@@ -1,0 +1,53 @@
+<html>
+
+    <head>
+        <script>
+            function reverseString(xd){ 
+                let out = "";
+                for(var i = xd.length; i>-1; i--){
+                    out += xd.charAt(i);
+                }
+                return out;
+            }
+            function isOpen(passedString){
+                //Write a function that tells if a string of "(" and ")" is well-formed, as in each close only happens after an open, and it ends all perfectly closed.
+                //make a for loop iterate through string
+                let paranCounter = 0;
+                for(var i = 0; i<passedString.length; i++){
+                //check for ( or )
+                if(passedString.charAt(i)==")" && paranCounter==0){return true;}
+                //if first encounter is ) return false if counter is 0
+                //if first encounter is ( increment counter by 1
+                if(passedString.charAt(i)=="(" ){
+                    paranCounter++;
+                }
+                else if(passedString.charAt(i) == ")"){
+                    paranCounter--;
+                }
+                    //if encounter ) decrement counter
+                    //else if encounter ( increment counter
+                }
+                if(paranCounter==0){return false}
+                else if(paranCounter <0){console.log("there might be an issue of off by one");}
+                else {return true;}
+                //if counter is > 0 return false
+                //else return true
+            }
+            function myfunction1(){
+                let textBoxValue = document.getElementById("myBox").value;
+                if (isOpen(textBoxValue)){
+                    alert("you have an open parantheses!")
+                }
+                else {alert("you have a closed parantheses!")}
+            }
+
+        </script>
+    </head>
+
+
+    <body>
+        <input id="myBox" type="text"></input>
+        <div id="box" onclick="myfunction1()">QUESTION 1</div>
+    </body>
+
+</html>
