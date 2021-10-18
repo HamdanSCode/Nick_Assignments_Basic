@@ -10,8 +10,7 @@
                         start = array1[i];
                     }
                 }
-                let contain = document.getElementById('container');
-                contain.innerHTML += "the largest value in the array is: "+start+"<br \>";
+                return start.toString();
             }
             function low(array1){
                 let start = array1[0];
@@ -20,16 +19,19 @@
                         start = array1[i];
                     }
                 }
+                return start.toString();
+            }
+            function bigBrain(array1){
                 let contain = document.getElementById('container');
-                contain.innerHTML += "the largest value in the array is: "+start+"<br \>";
+                contain.innerHTML += "the largest value in the array is: "+high(array1)+"<br \>";
+                contain.innerHTML += "the smallest value in the array is: "+low(array1)+"<br \>";
             }
             //Write a function that finds the lowest number in an array, and a function that finds the highest number
         </script>
    </head>
    <body>
        <p>
-            <input type='button' onclick='high([0,1,2,3,4,5,6,7,8,9,10])' value='Highest number in the array'>       
-            <input type='button' onclick='low([0,1,2,3,4,5,6,7,8,9,10])' value='Lowest number in the array'>
+            <input type='button' onclick='bigBrain([0,1,2,3,4,5,6,7,8,9,10])' value='Not the Belt'>       
        </p>     
        
          <div id='container'>
