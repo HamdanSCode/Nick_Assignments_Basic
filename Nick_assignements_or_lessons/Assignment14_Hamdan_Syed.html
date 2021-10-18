@@ -1,0 +1,42 @@
+<html>
+
+    <head>
+        <script>
+                             //creating input as a global array, accesible by any function in the scope of this script.
+            function high(array1){
+                let start = array1[0];
+                for(let i = 0; i<array1.length; i++){
+                    if(array1[i]>start){
+                        start = array1[i];
+                    }
+                }
+                let contain = document.getElementById('container');
+                contain.innerHTML += "the largest value in the array is: "+start+"<br \>";
+            }
+            function low(array1){
+                let start = array1[0];
+                for(let i = 0; i<array1.length; i++){
+                    if(array1[i]<start){
+                        start = array1[i];
+                    }
+                }
+                let contain = document.getElementById('container');
+                contain.innerHTML += "the largest value in the array is: "+start+"<br \>";
+            }
+            //Write a function that finds the lowest number in an array, and a function that finds the highest number
+        </script>
+   </head>
+   <body>
+       <p>
+            <input type='button' onclick='high([0,1,2,3,4,5,6,7,8,9,10])' value='Highest number in the array'>       
+            <input type='button' onclick='low([0,1,2,3,4,5,6,7,8,9,10])' value='Lowest number in the array'>
+       </p>     
+       
+         <div id='container'>
+           <p>
+               the 100 random numbers should go here: 
+           </p>
+       </div>
+   </body>
+
+</html>
