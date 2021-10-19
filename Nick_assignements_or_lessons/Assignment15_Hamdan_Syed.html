@@ -2,46 +2,31 @@
 
     <head>
         <script>
-                             //creating input as a global array, accesible by any function in the scope of this script.
-            function high(array1){
-                let start = array1[0];
-                for(let i = 0; i<array1.length; i++){
-                    if(array1[i]>start){
-                        start = array1[i];
+            function Output(array1){                                    //put the sorted array out to screen
+                console.log("The array: "+array1);
+                Sort(array1);                                           //sort the array
+                let toContainer = document.getElementById('container');
+                for (let d = 0; d<array1.length; d++){
+                    if(d%10==0){
+                        toContainer.innerHTML += "<br />"
                     }
-                }
-                return start;
-            }
-            function low(array1,index){               //starting point is the point from which the index of the loop is currently at
-                for(let s = index; s<array1.length; s++){   
-                    if(array1[s]<array1[index]){
-                        swap(array1,index,s);
-                        console.log("Swapping: "+array1[index] + " and " + array1[s]);
-                        console.log("The array is now: "+ array1);
-                    }
-                }
-            }
-            function swap(array,index1,index2){
-                var holder1 = array[index1];
-                array[index1] = array[index2];
-                array[index2] = holder1;
-            }
-            function Sort(array1){                         
-                for(let i = 0; i<array1.length; i++){       //iterate through array setting new lowest every time
-                    low(array1,i);             //establish lowest of remaining array elements
-                                                //itterate through loop looking for location of new lowest
-                                                //if the element location is equal to known lowest, swap positions
-                                                //swap
-                    }
-                    console.log("The array: "+array1);
-                    let toContainer = document.getElementById('container');
-                    for (let d = 0; d<array1.length; d++){
-                        if(d%10==0){
-                            toContainer.innerHTML += "<br />"
-                        }
                     console.log(array1[d].toString()+" ")
                     toContainer.innerHTML += array1[d].toString()+" ";
                     }
+            }
+            function Sort(array1){    
+                var holder1;                     
+                for(let i = 0; i<array1.length; i++){       //iterate through array setting an effective "starting point" for the array when iterating through
+                    for(let k = i; k<array1.length; k++){   //iterate through array from the new established starting point
+                        if(array1[k]<array1[i]){            //if the starting point of the effective new array is greater than any value in the array            
+                            holder1 = array1[i];             //swap
+                            array1[i] = array1[k];           //eventually it will swap with the lowest value and then move to the next starting point
+                            array1[k] = holder1;
+                            console.log("Swapping: "+array1[i] + " and " + array1[k]);
+                            console.log("The array is now: "+ array1);
+                        }
+                    }
+                }                                        //Write a function that sorts an array without the use of other functions    
                     /*          
                     find the lowest value in the array
                     swap "first" value with second value
@@ -51,12 +36,12 @@
                             look through array and swap items
                     */
             }
-            //Write a function that sorts an array without the use of other functions
+
         </script>
    </head>
    <body>
        <p>
-            <input type='button' onclick='Sort([1,6,7,0,12,3,15,2,9,-1,0,7])' value='Not the Belt'>       
+            <input type='button' onclick='Output([1,6,7,0,4,5,8,10,12,3,15,2,9,-1,0,7,7])' value='Not the Belt'>       
        </p>     
        
          <div id='container'>
