@@ -1,0 +1,69 @@
+<html>
+
+    <head>
+        <script>
+                             //creating input as a global array, accesible by any function in the scope of this script.
+            function high(array1){
+                let start = array1[0];
+                for(let i = 0; i<array1.length; i++){
+                    if(array1[i]>start){
+                        start = array1[i];
+                    }
+                }
+                return start;
+            }
+            function low(array1,index){               //starting point is the point from which the index of the loop is currently at
+                for(let s = index; s<array1.length; s++){   
+                    if(array1[s]<array1[index]){
+                        swap(array1,index,s);
+                        console.log("Swapping: "+array1[index] + " and " + array1[s]);
+                        console.log("The array is now: "+ array1);
+                    }
+                }
+            }
+            function swap(array,index1,index2){
+                var holder1 = array[index1];
+                array[index1] = array[index2];
+                array[index2] = holder1;
+            }
+            function Sort(array1){                         
+                for(let i = 0; i<array1.length; i++){       //iterate through array setting new lowest every time
+                    low(array1,i);             //establish lowest of remaining array elements
+                                                //itterate through loop looking for location of new lowest
+                                                //if the element location is equal to known lowest, swap positions
+                                                //swap
+                    }
+                    console.log("The array: "+array1);
+                    let toContainer = document.getElementById('container');
+                    for (let d = 0; d<array1.length; d++){
+                        if(d%10==0){
+                            toContainer.innerHTML += "<br />"
+                        }
+                    console.log(array1[d].toString()+" ")
+                    toContainer.innerHTML += array1[d].toString()+" ";
+                    }
+                    /*          
+                    find the lowest value in the array
+                    swap "first" value with second value
+
+                    first for loop is to iterate through the array, stepping each time to make sure each "first" element which would be at array1[i] is the lowest of the remaining elements
+                        second loop starting from the index of the first loop
+                            look through array and swap items
+                    */
+            }
+            //Write a function that sorts an array without the use of other functions
+        </script>
+   </head>
+   <body>
+       <p>
+            <input type='button' onclick='Sort([1,6,7,0,12,3,15,2,9,-1,0,7])' value='Not the Belt'>       
+       </p>     
+       
+         <div id='container'>
+           <p>
+               sorted array goes here: 
+           </p>
+       </div>
+   </body>
+
+</html>
