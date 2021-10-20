@@ -1,0 +1,49 @@
+<html>
+
+    <head>
+        <script>
+
+            function output(array1){                                    //put the sorted array out to screen
+                let toContainer = document.getElementById('container');
+                toContainer.innerHTML += "word split array: " + split(array1);
+            }
+            function split(array1){
+                //splits a string by spaces into an array of each word
+                const words = new Array();
+                var wordIndex = 0;
+                var start = 0;
+                //create a new array to return the word array back
+                //establish a starting point
+                for(let i = 0; i<array1.length; i++){
+                    if(array1[i]==" "){
+                        words[wordIndex]= array1.slice(start,i);
+                        start = i+1;
+                        wordIndex++;
+                    }
+                }
+                words[wordIndex] = array1.slice(start);
+                return words;
+                //count number elements till a " " appears
+                //slice out or substr out the word from the starting point up to the space to the new array
+                //move past the " "
+                //set the initial array = to substr of remaining array
+                //repeat
+                //return the new array
+            }
+            
+            //Write a function that splits a string by spaces into an array of each word (get rid of the space entirely) each word in its own element
+        </script>
+   </head>
+   <body>
+       <p>
+            <input type='button' onclick='output("hello how is it goin my dude")' value='Not the Belt'>       
+       </p>     
+       
+         <div id='container'>
+           <p>
+               sorted array goes here: 
+           </p>
+       </div>
+   </body>
+
+</html>
