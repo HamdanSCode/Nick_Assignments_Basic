@@ -1,0 +1,43 @@
+<html>
+
+    <head>
+        <script>
+
+            function output(incArray){                                    //put the sorted array out to screen
+                let toContainer = document.getElementById('container');
+                toContainer.innerHTML = "your starting array: " + incArray+ "<br>";
+                reverse(incArray)
+                toContainer.innerHTML += "your reversed array: "+ incArray;
+                
+            }
+            function reverse(incArray){
+                let holder = incArray[0];
+                //make a holder variable to not lose data as we swap values
+                //loop through array
+                for(let i = 0; i<incArray.length/2; i++){
+                    //set holder to be equal to element at current index
+                    holder = incArray[i];
+                    //set current index element to be the element at arraylength - index
+                    incArray[i]=incArray[incArray.length-i-1];
+                    //set element at arraylength-index to be holder
+                    incArray[incArray.length-i-1] = holder;
+                    //don't even need to return the array as we are changing the original
+                }
+            }
+            
+            //Write a function that reverses the order of an array in place without using another array variable.
+        </script>
+   </head>
+   <body>
+       <p>
+            <input type='button' onclick='output([1,2,3,4,5,6,7,8,9,10])' value='Pog the Belt'>       
+       </p>     
+       
+         <div id='container'>
+           <p>
+               stuff goes below here:
+           </p>
+       </div>
+   </body>
+
+</html>
