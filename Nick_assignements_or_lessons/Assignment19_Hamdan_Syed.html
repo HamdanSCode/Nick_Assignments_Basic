@@ -3,10 +3,10 @@
     <head>
         <script>
 
-            function output(String1,String2){                                    //put the sorted array out to screen
+            function output(string1,string2){                                    //put the sorted array out to screen
                 let toContainer = document.getElementById('container');
-                if(indexOf(String1,String2) == -1){toContainer.innerHTML = String1 + " does not have your substr "+ String2 + " in it.";}
-                else{toContainer.innerHTML = String1 + " has your substr "+ String2 + " in it at the index: " + indexOf(String1,String2);}
+                if(indexOf(string1,string2) == -1){toContainer.innerHTML = string1 + " does not have your substr "+ string2 + " in it.";}
+                else{toContainer.innerHTML = string1 + " has your substr "+ string2 + " in it at the index: " + indexOf(string1,string2);}
                 
             }
             function indexOf(full,partial){     //repurposed most of the contains function into an IndexOf function
