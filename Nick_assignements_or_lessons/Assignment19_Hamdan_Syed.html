@@ -1,0 +1,58 @@
+<html>
+
+    <head>
+        <script>
+
+            function output(String1,String2){                                    //put the sorted array out to screen
+                let toContainer = document.getElementById('container');
+                if(indexOf(String1,String2) == -1){toContainer.innerHTML = String1 + " does not have your substr "+ String2 + " in it.";}
+                else{toContainer.innerHTML = String1 + " has your substr "+ String2 + " in it at the index: " + indexOf(String1,String2);}
+                
+            }
+            function indexOf(full,partial){     //repurposed most of the contains function into an IndexOf function
+                //bool flag if partial is in full-
+                //index holder for the index the substr is at
+                let holder = -1;
+                let isIn = false;
+                //loop through full
+                for(let i = 0; i<full.length; i++){
+                    if(full[i]==partial[0]){
+                        //update holder to be at the correct index when finding a matching start
+                        holder = i;
+                        //if full at current index has the same character as partials first character
+                        for(let k = 1; k<partial.length; k++){
+                        //loop from current index for a length equal to partials length
+                            isIn = true;
+                            //set flag to true for partial being part of full
+                            //if full at current inner loop index != partial at current inner loop index
+                            if(full[i+k]!= partial[k]){
+                                //set flag to false
+                                //set holder back to -1
+                                isIn = false;
+                                holder = -1;
+                            }
+                        }//if flag is true return the holding index, which should be at the correct index
+                        if(isIn == true){return holder;}
+                    }
+                }   //return -1, because we did not find the partial string in the full string
+                return holder;
+            }
+            
+            //Write a string "indexOf" function. This should take in a string and a substring and return the index of where the substring starts in the string. 
+            //Ex: ("basketball", "ket") should return 3. If you don't find the substring, return -1. You shouldn't need help from functions for this except for charAt.
+        </script>
+   </head>
+   <body>
+       <p>
+            <input type='button' onclick='output("Basketball","balls")' value='Not the Belt'>
+            <input type='button' onclick='output("Basketball","ball")' value='Pog the Belt'>       
+       </p>     
+       
+         <div id='container'>
+           <p>
+               sorted array goes here: 
+           </p>
+       </div>
+   </body>
+
+</html>
