@@ -17,23 +17,23 @@
                 for(let m = 0; m<array1.length;m++){
                     scrambled[m] = array1[m];
                 }
+                start = new Date().getTime();
                 for (let pog = 0; pog<1000000; pog++){
-                    start = new Date().getTime();
                     sort(array1);
-                    end = new Date().getTime();
-                    average += ((end - start));
                     scramble(array1,scrambled);
                 }
+                end = new Date().getTime();
+                average += ((end - start));
                 let toContainer = document.getElementById('container');
                 toContainer.innerHTML += "My sort took an average of: "+average +" miliseconds"+"<br>";
                 average = 0;
-                for (let pog = 0; pog<1000000; pog++){
-                    start = new Date().getTime();
+                start = new Date().getTime();
+                for (let isIt = 0; isIt<1000000; isIt++){
                     array1.sort();
-                    end = new Date().getTime();
-                    average += ((end - start));
                     scramble(array1,scrambled);
                 }
+                end = new Date().getTime();
+                average += ((end - start));
                 toContainer.innerHTML += "Javascript sort function took an average of: "+average +" miliseconds";
             }
             function sort(array1){    
