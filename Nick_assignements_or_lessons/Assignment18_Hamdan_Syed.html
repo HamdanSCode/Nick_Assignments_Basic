@@ -1,0 +1,54 @@
+<html>
+
+    <head>
+        <script>
+
+            function output(String1,String2){                                    //put the sorted array out to screen
+                let toContainer = document.getElementById('container');
+                if(contains(String1,String2) == false){toContainer.innerHTML = String1 + " does not have your substr "+ String2 + " in it.";}
+                else{toContainer.innerHTML = String1 + " has your substr "+ String2 + " in it.";}
+                
+            }
+            function contains(full,partial){
+                //bool flag if partial is in full-
+                let isIn = false;
+                //loop through full
+                for(let i = 0; i<full.length; i++){
+                    if(full[i]==partial[0]){
+                    // if full at current index has the same character as partials first character
+                    console.log("went into the if statement");
+                        for(let k = 1; k<partial.length; k++){
+                        //loop from current index for a length equal to partials length
+                            isIn = true;
+                            //set flag to true for partial being part of full
+                            //if full at current inner loop index != partial at current inner loop index
+                            if(full[i+k]!= partial[k]){
+                                console.log("went into the second if statement");
+                                //set flag to false
+                                isIn = false;
+                            }
+                        }//if flag is true return true
+                        if(isIn == true){return true;}
+                    }
+                }   //return false, because we did not find the partial string in the full string
+                return false;
+            }
+            
+            //Write a string "contains" function. This should take in a string and a substring and return if the string contains the substring. 
+            //Ex: ("basketball", "ball") should return true. You shouldn't need help from functions for this except for charAt.
+        </script>
+   </head>
+   <body>
+       <p>
+            <input type='button' onclick='output("Basketball","balls")' value='Not the Belt'>
+            <input type='button' onclick='output("Basketball","ball")' value='Pog the Belt'>       
+       </p>     
+       
+         <div id='container'>
+           <p>
+               sorted array goes here: 
+           </p>
+       </div>
+   </body>
+
+</html>
