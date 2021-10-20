@@ -1,0 +1,74 @@
+<html>
+
+    <head>
+        <script>
+            function scramble(array1,array2){
+                for(let xd = 0; xd<array1.length; xd++){
+                    array1[xd] = array2[xd]
+                }
+            }
+            function output(array1){                                    //put the sorted array out to screen
+                const scrambled = [];
+                var start;
+                var end;
+                var average=0;
+                var d;
+
+                for(let m = 0; m<array1.length;m++){
+                    scrambled[m] = array1[m];
+                }
+                for (let pog = 0; pog<1000000; pog++){
+                    start = new Date().getTime();
+                    sort(array1);
+                    end = new Date().getTime();
+                    average += ((end - start));
+                    scramble(array1,scrambled);
+                }
+                let toContainer = document.getElementById('container');
+                toContainer.innerHTML += "My sort took an average of: "+average +" miliseconds"+"<br>";
+                average = 0;
+                for (let pog = 0; pog<1000000; pog++){
+                    start = new Date().getTime();
+                    array1.sort();
+                    end = new Date().getTime();
+                    average += ((end - start));
+                    scramble(array1,scrambled);
+                }
+                toContainer.innerHTML += "Javascript sort function took an average of: "+average +" miliseconds";
+            }
+            function sort(array1){    
+                var holder1;                     
+                for(let i = 0; i<array1.length; i++){       //iterate through array setting an effective "starting point" for the array when iterating through
+                    for(let k = i; k<array1.length; k++){   //iterate through array from the new established starting point
+                        if(array1[k]<array1[i]){            //if the starting point of the effective new array is greater than any value in the array            
+                            holder1 = array1[i];             //swap
+                            array1[i] = array1[k];           //eventually it will swap with the lowest value and then move to the next starting point
+                            array1[k] = holder1;
+                        }
+                    }
+                }                                        //Write a function that sorts an array without the use of other functions    
+            }       /*          
+                    find the lowest value in the array
+                    swap "first" value with second value
+
+                    first for loop is to iterate through the array, stepping each time to make sure each "first" element which would be at array1[i] is the lowest of the remaining elements
+                        second loop starting from the index of the first loop
+                            look through array and swap items
+                    */
+            
+
+        </script>
+   </head>
+   <body>
+       <p>
+            <input type='button' onclick='output([1,6,7,0,4,5,8,10,12,3,15,2,9,-1,0,7,7,100,-20,45,3,81,2,-3,-7,-9])' value='Not the Belt'>       
+       </p>     
+       
+         <div id='container'>
+           <p>
+               sorted array goes here: 
+           </p>
+       </div>
+   </body>
+
+</html>
